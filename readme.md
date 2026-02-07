@@ -1,4 +1,4 @@
-# METHOD TO THE MADNESS
+## METHOD TO THE MADNESS
 - PLAN THE PROBLEMS so we make sure we get it done during that day or time
 - HAVE THE TIMER READY
 - Go through the problem
