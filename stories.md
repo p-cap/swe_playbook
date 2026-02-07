@@ -58,8 +58,6 @@ Merge made by the 'ort' strategy.
 [07:47:42] ~/dsa/python/repo/swe_playbook main>> 
 
 
-
-
 ### The story of the unverified commits
 It all started when I was looking all of my commit-"MENTS".....scary. I realized that the git commits for my repo are "unverified"....Unverified? According to my friend, git, I'm git's buddy so I call her gitty. So gitty's docs says, because I enabled vigilant mode, all my commits are tagged "unverified" if it's any of the following:
 - the commit is signed but the signature could not be verified
@@ -67,26 +65,6 @@ It all started when I was looking all of my commit-"MENTS".....scary. I realized
 - the commit is NOT signed and the author has vigilant mode enabled
 
 [08:35:03] ~/dsa/python/repo/swe_playbook main>> ssh-keygen -t ed25519 -C "slashedeye@gmail.com"
-Generating public/private ed25519 key pair.
-Enter file in which to save the key (/Users/pckap/.ssh/id_ed25519): .ssh/my_key
-Enter passphrase for ".ssh/my_key" (empty for no passphrase): 
-Enter same passphrase again: 
-Your identification has been saved in .ssh/my_key
-Your public key has been saved in .ssh/my_key.pub
-The key fingerprint is:
-SHA256:QkWVx+D7oOLkzTEJJANx8Iq4kjSEgPRg8qaiMdixCgY slashedeye@gmail.com
-The key's randomart image is:
-+--[ED25519 256]--+
-|=++o.  .o.o+     |
-|*.o+   . .. o    |
-|E.+.+ o   ..     |
-|== + =     .     |
-|X++   o S o      |
-|**.    o o o     |
-|*     o =   .    |
-|.    + + o       |
-|      o o        |
-+----[SHA256]-----+
 [08:35:33] ~/dsa/python/repo/swe_playbook main>> git config core.sshCommand "ssh -i $(pwd)/.ssh/my_key"    
 
 
