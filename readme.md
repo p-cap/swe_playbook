@@ -1,13 +1,3 @@
-### Note to self
-- we are following the neetcode roadmap 
-- dude, command option for multiline bro
-- longest consecutive sequence showcases on how to use set to find elements in an array
-    - essentially, casting the nums input into an array
-    - now, we can start looking for values within that set in O(1)
-
-
-
-
 METHOD TO THE MADNESS
 - PLAN THE PROBLEMS so we make sure we get it done during that day or time
 - HAVE THE TIMER READY
