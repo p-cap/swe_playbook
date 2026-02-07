@@ -1,0 +1,24 @@
+# --- SECURITY & KEYS ---
+# Exclude the entire .ssh folder (and everything inside it)
+.ssh/
+# Also exclude any common individual key files just in case
+*.pem
+*.key
+id_ed25519*
+id_rsa*
+
+# --- SYSTEM FILES ---
+.DS_Store
+Thumbs.db
+*.swp
+
+# --- ENVIRONMENT & SECRETS ---
+.env
+.env.local
+.env.*.local
+
+# --- DEPENDENCIES (Example: Node/Python) ---
+node_modules/
+__pycache__/
+venv/
+.venv/
