@@ -5,9 +5,6 @@
     - essentially, casting the nums input into an array
     - now, we can start looking for values within that set in O(1)
 
-### 3 Feb
-- 3sum - I was getting the wrong answer because I had the return statement INSIDE the for loop
-- 
 
 
 METHOD TO THE MADNESS
