@@ -5,6 +5,7 @@
     - essentially, casting the nums input into an array
     - now, we can start looking for values within that set in O(1)
 
+## Configuring signed commits
 
 
 METHOD TO THE MADNESS
