@@ -56,3 +56,89 @@ Merge made by the 'ort' strategy.
  create mode 100644 stacks/reverse-polish-notation.ipynb
  create mode 100644 stacks/valid-stacks.ipynb
 [07:47:42] ~/dsa/python/repo/swe_playbook main>> 
+
+
+
+
+### The story of the unverified commits
+It all started when I was looking all of my commit-"MENTS".....scary. I realized that the git commits for my repo are "unverified"....Unverified? According to my friend, git, I'm git's buddy so I call her gitty. So gitty's docs says, because I enabled vigilant mode, all my commits are tagged "unverified" if it's any of the following:
+- the commit is signed but the signature could not be verified
+- the commit is NOT signed and the committer has vigilant mode is enabled
+- the commit is NOT signed and the author has vigilant mode enabled
+
+[08:35:03] ~/dsa/python/repo/swe_playbook main>> ssh-keygen -t ed25519 -C "slashedeye@gmail.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/pckap/.ssh/id_ed25519): .ssh/my_key
+Enter passphrase for ".ssh/my_key" (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in .ssh/my_key
+Your public key has been saved in .ssh/my_key.pub
+The key fingerprint is:
+SHA256:QkWVx+D7oOLkzTEJJANx8Iq4kjSEgPRg8qaiMdixCgY slashedeye@gmail.com
+The key's randomart image is:
++--[ED25519 256]--+
+|=++o.  .o.o+     |
+|*.o+   . .. o    |
+|E.+.+ o   ..     |
+|== + =     .     |
+|X++   o S o      |
+|**.    o o o     |
+|*     o =   .    |
+|.    + + o       |
+|      o o        |
++----[SHA256]-----+
+[08:35:33] ~/dsa/python/repo/swe_playbook main>> git config core.sshCommand "ssh -i $(pwd)/.ssh/my_key"    
+
+
+08:41:02] ~/dsa/python/repo/swe_playbook main>> git remote -v
+origin  https://github.com/p-cap/swe_playbook.git (fetch)
+origin  https://github.com/p-cap/swe_playbook.git (push)
+[08:42:54] ~/dsa/python/repo/swe_playbook main>> git remote set-url origin git@github.com:p-cap/swe_playbook.git
+[08:43:07] ~/dsa/python/repo/swe_playbook main>> git config -l
+credential.helper=osxkeychain
+init.defaultbranch=main
+includeif.gitdir:~/personal/.path=~/.gitconfig-personal
+includeif.gitdir:~/work/.path=~/.gitconfig-work
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+core.ignorecase=true
+core.precomposeunicode=true
+core.sshcommand=ssh -i /Users/pckap/dsa/python/repo/swe_playbook/.ssh/my_key
+remote.origin.url=git@github.com:p-cap/swe_playbook.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
+user.name=p-cap
+user.email=slashedeye@gmail.com
+pull.rebase=false
+[08:43:44] ~/dsa/python/repo/swe_playbook main>> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   readme.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[08:44:10] ~/dsa/python/repo/swe_playbook main>> git commit -a
+[main f9d22c4] testing ssh config
+ 1 file changed, 3 deletions(-)
+[08:44:24] ~/dsa/python/repo/swe_playbook main>> git push
+Enter passphrase for key '/Users/pckap/dsa/python/repo/swe_playbook/.ssh/my_key': 
+Enter passphrase for key '/Users/pckap/dsa/python/repo/swe_playbook/.ssh/my_key': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 290 bytes | 290.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:p-cap/swe_playbook.git
+   4ca2a7f..f9d22c4  main -> main
+[08:44:43] ~/dsa/python/repo/swe_playbook main>> 
+
+reference:
+ git config core.sshCommand "ssh -i $(pwd)/.ssh/my_key" 
