@@ -11,5 +11,4 @@
 - Determine Time and Space Complexity
 - Create a running list of python functions, tips and tricks so we can just refer to one document - this will likely be a separate tab
 - REDO ON THE SAME NOTEBOOK
-
-
+- For intuition, start out with smaller test cases
