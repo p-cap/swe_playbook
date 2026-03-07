@@ -2,7 +2,7 @@
 
 
 
-* PLAN THE PROBLEMS so we make sure we get it done during that day or time
+* Plan the problems using the neetcode roadmap
 * HAVE THE TIMER READY
 * Go through the problem
 * SUMMARIZE - this is important because sometimes I thought I understood the problem but I really did not
@@ -11,7 +11,7 @@
 * test the test cases in remarkable
 * OPTIONAL: practice print statements to see how can I effectively debug the problem with the help of Gemini
 * Optimize
-* Determine Time and Space Complexity 
+* Determine Time and Space Complexity
 * Create a running list of python functions, tips and tricks so we can just refer to one document - this will likely be a separate tab
 * REDO ON THE SAME NOTEBOOK
 * For intuition, start out with smaller test cases
