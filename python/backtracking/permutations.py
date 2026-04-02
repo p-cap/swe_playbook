@@ -2,7 +2,7 @@ nums = [1,2]
 n = len(nums)
 result = []
 path = []
-used = [False] * n # The "occupied" sign for the chairs
+# used = [False] * n # The "occupied" sign for the chairs
 
 def backtrack():
     # BASE CASE: All seats are filled
@@ -14,11 +14,11 @@ def backtrack():
     for i in range(n):
 
         # PRUNING: Is this person already sitting down?
-        if used[i]:
+        if nums[i] in path:
             continue
         
         # 1. SIT DOWN: Mark as used and add to path
-        used[i] = True
+        # used[i] = True
         path.append(nums[i])
 
         # 2. RECURSE: Fill the next slots
@@ -26,7 +26,7 @@ def backtrack():
 
         # 3. STAND UP: Backtrack (The "Undo")
         path.pop()
-        used[i] = False
+        # used[i] = False
 
 backtrack()
 print(result)
