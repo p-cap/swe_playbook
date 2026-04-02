@@ -9,6 +9,13 @@
 - For the permutation problem, we check if the length of the list is equal to the input list
 - For combination sum, the target is the constraint
 
+### Combination in motion
+- the backtrack is called by passing in an index
+- the parent backtrack holds the first element of list
+- i + 1 ensures we have a different start on every for loop
+- this also inheritly prevents the same numbers being added within the same list
+- this also is great for combinations because order does not matter meaning [1,2] and [2,1] are the same
+
 # Backtracking Strategy & Patterns
 
 ## 🎤 Technical Interview Strategy
@@ -97,5 +104,36 @@ class Solution:
                 path.pop()
             
         backtrack()
+        return result
+```
+
+### Combination
+> the combination is almost the same with subsets with a slight difference. It checks if the k is equal to the length of the path list 
+
+```python 
+class Solution(object):
+    def combine(self, n, k):
+        """
+        :type n: int
+        :type k: int
+        :rtype: List[List[int]]
+        """
+        result = []
+        path = []
+
+        def backtrack(start):
+            if len(path) == k:
+                result.append(path[:])
+                return 
+            
+            # dynamic start in the loop
+            # this is the same with subset
+            for i in range(start,n + 1):
+                path.append(i)
+                backtrack(i + 1)
+                path.pop()
+        
+        # start with 1
+        backtrack(1)
         return result
 ```
