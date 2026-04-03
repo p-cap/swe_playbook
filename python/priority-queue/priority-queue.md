@@ -39,6 +39,9 @@ When is `print(f'count')` become an error?
  How is a list of tuples heapified?
  > the `first element` in the tuple is what's being utilized
 
+ Why does the default `heapq` behavior work for this problem?
+ > the root of the heap will be the minimum value amongst the elements in the list. When we pop an element using heappop(), we removing the root of the list meaning element zero in the list
+
 ### CODE
 ```
 from collections import Counter
