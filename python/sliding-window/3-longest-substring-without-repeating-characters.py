@@ -5,7 +5,6 @@ n = len(s)
 longest = 1
 
 for right in range(n):
-    
     while s[right] in window:
         window.remove(s[left])
         left += 1

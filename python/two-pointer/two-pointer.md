@@ -50,7 +50,7 @@ class Solution(object):
         for i in range(k, len(arr)):
             current_sum = current_sum - arr[i-k] + arr[i]
             if (current_sum / k) >= threshold:
-                result += 1
+       f         result += 1
         return result  
 ```
 - initially calculated the current sum
