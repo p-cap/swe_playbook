@@ -4,6 +4,12 @@
 - Constraints
 - Backtracking steps
 
+## ISSUES
+- remember, you need a SHALLOW COPY OF THE LIST
+- 
+
+
+
 ### Base Case
 - The subset problem DOES NOT have a base case
 - For the permutation problem, we check if the length of the list is equal to the input list
@@ -17,14 +23,6 @@
 - this also is great for combinations because order does not matter meaning [1,2] and [2,1] are the same
 
 # Backtracking Strategy & Patterns
-
-## 🎤 Technical Interview Strategy
-When an interviewer asks for "all possible" configurations, emphasize these four pillars:
-
-1.  **The State Space Tree:** Explain that you are exploring a decision tree where each node represents a partial solution.
-2.  **The Choice:** Define what you are adding at each step (e.g., "I am choosing the next character for the partition").
-3.  **The Constraints (Pruning):** Mention that you will stop exploring a branch as soon as it violates a rule (e.g., "If the current string isn't a palindrome, I won't recurse further").
-4.  **The Cleanup:** Explicitly mention the **Backtrack step** (`path.pop()`), which resets the state so the next iteration of the loop can start with a "clean slate."
 
 ---
 
@@ -81,6 +79,11 @@ class Solution:
         backtrack(0)
         return result
 ```
+ISSUES:
+- FORGOT SHALLOW COPY: `result.append(path[:])`
+- remember to pass a index on every backtrack call
+- inside every for loop, pass the CURRENT INDEX PLUS 1 (i + 1) which prevents using the same element twice
+- twice meaning same elements within the same list
 
 ### Permutation
 > For permutation, we also utilize a for loop however, each recursive function's for loop start with zero. It's important to check if the current nums is in the path and if so, we continue with the next iteration. 
@@ -105,6 +108,20 @@ class Solution:
             
         backtrack()
         return result
+```
+- ISSUES
+- was not clear on the suttle differences between subset and permutation
+- FORGOT THE RETURN WHEN HITTING THE BASE CASE
+```python
+if len(path) == len(nums):
+    result.append(path[:])
+    return
+```
+- checking if the nums[i] is in path to prevent duplicates
+```python
+for i in range(len(nums)):
+    if nums[i] in path:
+        continue
 ```
 
 ### Combination
@@ -137,3 +154,6 @@ class Solution(object):
         backtrack(1)
         return result
 ```
+ISSUES: 
+- subset is very combination
+- the only different is the base case checks for the length for each list 
