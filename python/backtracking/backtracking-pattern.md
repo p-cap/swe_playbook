@@ -1,32 +1,57 @@
-## Backtracking General Pattern
+## BACKTRACKING GENERAL PATTERN
 - Base Case
 - Choices
 - Constraints
 - Backtracking steps
 
-## ISSUES
+## RESOURCES TO REMEMBER
+- Cracking the coding interview book
+- Google Drive resources from Logan
+
+## ISSUES TRACKING / COMMON GOTCHAS
 - remember, you need a SHALLOW COPY OF THE LIST
-- 
+- for subsets, I still need some clarification on how the code is:
+    - preventing duplicate subsets
+    - preventing duplicates within inputs with different elements
 
+## Pattern Validation through problems
+### Subset
+- FILE_PATH: python/backtracking/subsets.py
+- Base Case: Subset DOES NOT have a base case
+- Choices: The choices are based on the addition of elements from `current_path` variable?
+- Constraints: No constraints for this problem
+- Backtracking steps
+    - for loop
+    - add current element to build the subset
+    - call the backtracking function with `i+1` on every backtracking call
+    - pop form the `current_path` list 
 
-
-### Base Case
-- The subset problem DOES NOT have a base case
-- For the permutation problem, we check if the length of the list is equal to the input list
-- For combination sum, the target is the constraint
+### Permutation
+- FILE_PATH: python/backtracking/permutations.py
+- Base Case: If `current_path` length is equal to the input length, add the `current_path` to the `result`
+- Choices: We add elements but we make sure we do not have duplicate elements by checking the `current_path`
+- Constraints: ?????
+- Backtracking steps:
+    - for loop
+    - add current element to `current_path` 
+    - call the backtracking function without a parameter
 
 ### Combination in motion
-- the backtrack is called by passing in an index
-- the parent backtrack holds the first element of list
-- i + 1 ensures we have a different start on every for loop
-- this also inheritly prevents the same numbers being added within the same list
-- this also is great for combinations because order does not matter meaning [1,2] and [2,1] are the same
+- FILE_PATH: python/backtracking/combination.py
+- Base Case: If `current_path` length is equal to `k`, add `current_path` to `result`
+- Choices: We add the element based on the incremental starting of the for loop on every backtracking call
+- Constraints: The starting index is based on `i+1` from the backtrack parameter
+- Backtracking steps:
+    - `i+1` is the starting index of the for loop
+    - for loop
+    - add element to `current_path`
+    - call backtrack function
+    - pop element 
 
-# Backtracking Strategy & Patterns
-
+## REFERENCE
 ---
 
-## 🚀 Master Logic Table (Quick Reference)
+### 🚀 Master Logic Table (Quick Reference)
 
 | Strategy | Trigger Words | Selection Logic (The "Why") | Key LeetCode |
 | :--- | :--- | :--- | :--- |
@@ -38,7 +63,7 @@
 
 ---
 
-## 💡 Visual Logic Comparison
+### 💡 Visual Logic Comparison
 
 | Feature | Subsets / Combinations | Permutations |
 | :--- | :--- | :--- |
@@ -49,111 +74,3 @@
 
 ---
 
-## ⚠️ Common Interview "Gotchas"
-
-> 💡 **The Reference Trap:** > In Python, lists are passed by reference. If you do `res.append(path)`, you will end up with a list of empty lists. Always use **`res.append(path[:])`** to save a snapshot of the current state.
-
-> 🚀 **The Start Index:** > In Subsets/Combinations, passing `i + 1` (the loop index) to the next call is what prevents you from using the same element twice. Using `start + 1` by mistake is a common bug that leads to duplicate combinations.
-
---
-
-## CODE
-
-### Subset
-> This code and permutation will be similar so it is easier to remember. Everytime the recursive function is called, we add the current state of path. 
-
-```python
-class Solution:
-    def subsets(self, nums: List[int]) -> List[List[int]]:
-        result = []
-        path = []
-
-        def backtrack(start):
-            result.append(path[:])
-
-            for i in range(start, len(nums)):
-                path.append(nums[i])
-                backtrack(i + 1)
-                path.pop()
-        
-        backtrack(0)
-        return result
-```
-ISSUES:
-- FORGOT SHALLOW COPY: `result.append(path[:])`
-- remember to pass a index on every backtrack call
-- inside every for loop, pass the CURRENT INDEX PLUS 1 (i + 1) which prevents using the same element twice
-- twice meaning same elements within the same list
-
-### Permutation
-> For permutation, we also utilize a for loop however, each recursive function's for loop start with zero. It's important to check if the current nums is in the path and if so, we continue with the next iteration. 
-
-```python
-class Solution:
-    def permute(self, nums: list[int]) -> list[list[int]]:
-        result = []
-        path = []
-
-        def backtrack():
-            if len(path) == len(nums):
-                result.append(path[:])
-                return
-            
-            for i in range(len(nums)):
-                if nums[i] in path:
-                    continue
-                path.append(nums[i])
-                backtrack()
-                path.pop()
-            
-        backtrack()
-        return result
-```
-- ISSUES
-- was not clear on the suttle differences between subset and permutation
-- FORGOT THE RETURN WHEN HITTING THE BASE CASE
-```python
-if len(path) == len(nums):
-    result.append(path[:])
-    return
-```
-- checking if the nums[i] is in path to prevent duplicates
-```python
-for i in range(len(nums)):
-    if nums[i] in path:
-        continue
-```
-
-### Combination
-> the combination is almost the same with subsets with a slight difference. It checks if the k is equal to the length of the path list 
-
-```python 
-class Solution(object):
-    def combine(self, n, k):
-        """
-        :type n: int
-        :type k: int
-        :rtype: List[List[int]]
-        """
-        result = []
-        path = []
-
-        def backtrack(start):
-            if len(path) == k:
-                result.append(path[:])
-                return 
-            
-            # dynamic start in the loop
-            # this is the same with subset
-            for i in range(start,n + 1):
-                path.append(i)
-                backtrack(i + 1)
-                path.pop()
-        
-        # start with 1
-        backtrack(1)
-        return result
-```
-ISSUES: 
-- subset is very combination
-- the only different is the base case checks for the length for each list 
