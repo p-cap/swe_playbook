@@ -8,12 +8,17 @@
 - Cracking the coding interview book
 - Google Drive resources from Logan
 
-## ISSUES TRACKING / COMMON GOTCHAS
+## ISSUES TRACKING / COMMON GOTCHAS / MY THOUGHTS
 - remember, you need a SHALLOW COPY OF THE LIST
 - for subsets, I still need some clarification on how the code is:
     - preventing duplicate subsets
     - preventing duplicates within inputs with different elements
 - Combination Sum, passing only `i` through the parameter vs `i+1` and also accounting current sum and the current element
+- Here's how I can describe the algorithm for Combination
+    - The first element is set at the parent backtrack call
+    - the succeeding elements are added on every backtrack call
+    - this is because on every backtrack call, we are incrementing the start index by 1
+    - the popping of the element or removeal of the choice will initiate another set of elements
 
 ## Pattern Validation through problems
 ### Subset
