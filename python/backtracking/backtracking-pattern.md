@@ -13,6 +13,7 @@
 - for subsets, I still need some clarification on how the code is:
     - preventing duplicate subsets
     - preventing duplicates within inputs with different elements
+- Combination Sum, passing only `i` through the parameter vs `i+1` and also accounting current sum and the current element
 
 ## Pattern Validation through problems
 ### Subset
@@ -47,6 +48,23 @@
     - add element to `current_path`
     - call backtrack function
     - pop element 
+
+### Combination Sum
+- FILE PATH: python/backtracking/combination-sum.py
+- BASE CASE:
+    - the running total equal to the target, we append elements onto the result
+    - if the total greater than the target, return
+- CHOICES: 
+    - We can choose unlimited elements of the same element to get to the sum
+    - the list can be in any order
+- CONSTRAINTS:
+    - ?????
+- BACKTRACKING STEPS:
+    - if the `total` equal to the `target`, added the list to the result
+    - if the `total` is greater than the target, return
+    - append elements onto a `path` list
+    - backtrack function has two parameters, the i for the index and the running total
+    - NOTE: Make when passing the total, we are adding total to the current element
 
 ## REFERENCE
 ---

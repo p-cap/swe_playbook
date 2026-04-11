@@ -1,26 +1,24 @@
-candidates = [2,2,4]
-target = 4
+candidates = [2,3,5]
+target = 8
 result = []
 path = []
+n = len(candidates)
 
-def backtrack(i, total):
+def backtrack(start, total):
+    # BASE CASE: total and target are the same append to result
     if total == target:
         result.append(path[:])
-        # not having a return made a difference because there were duplicates entries in result
         return 
-
-    if i >= len(candidates) or total > target:
-        return
-
-    # appends the potential elements within candidates    
-    path.append(candidates[i])
-
-    # adding element with the same index
-    backtrack(i, total + candidates[i])
-
-    path.pop()
-    # adding element with a different index
-    backtrack(i + 1, total)
     
+    # BASE CASE 2: If total greater than taregt, return
+    if total > target:
+        return
+    
+    for i in range(start, n):
+        path.append(candidates[i])
+        # just pass in the i only so we can use duplicate entries and account for the running total
+        backtrack(i,total + candidates[i])
+        path.pop()        
+
 backtrack(0,0)
 print(result)
