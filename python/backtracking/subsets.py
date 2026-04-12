@@ -1,28 +1,16 @@
 nums = [1,2]
 result = []
-subset = []
+current_path = []
+n = len(nums)
 
-"""
-- call backtrack(0)
-- BASE CASE: if the current index, i, is greater than or equal to the length of nums, we add the shallow copy of subset and add it to result
-- we add ith element in nums
-- we append it to subset
-- call backtrack(i + 1)
-- pop from subset
-- call backtrack(i + 1)
-"""
-
-
-def backtrack(i):
-    if  i >= len(nums):
-        result.append(subset[:])
-        return
-    
-    subset.append(nums[i])
-    backtrack(i + 1)
-
-    subset.pop()
-    backtrack(i + 1)
-
+def backtrack(start):
+    result.append(current_path[:])
+    for i in range(start, n):
+        current_path.append(nums[i])
+        # i added start not i
+        # i should debug but not look at other code to reference
+        backtrack(i + 1)
+        current_path.pop()
+        
 backtrack(0)
 print(result)
