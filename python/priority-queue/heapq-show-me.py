@@ -1,17 +1,25 @@
 # show how heapq.heapify works
 import heapq
 
-# 1. Start with an unsorted list
-data = [10, 1, 5, 20, 2]
+k = 4
+data =  [4, 5, 8, 2]
 print(f"Original: {data}")
+print(f"k: {k}")
 
-# 2. transforms list into a heap
+# heapifying the min_heap
 heapq.heapify(data)
-print(f"After heapify: {data}") # not fully sorted BUT data[0] is the smallest
+print(f"After heapify: {data}")
 
-smallest = heapq.heappop(data)
-print(f"Popped the smallest: {smallest}")
-print(f"Data after the pop is: {data}")
+# pushing data onto min_heap
+stream_data = 3
+print(f"Adding {stream_data}")
+heapq.heappush(data, stream_data)
+print(f"After heapush: {data}")
 
-heapq.heappush(data, 3) # 3 is the second element
-print(f"After pushing 3: {data}")
+# popping data from min_heap
+if len(data) > k:
+    heapq.heappop(data)
+
+# This does not represent 
+print(f"After heappop: {data}")
+print(data[0])
