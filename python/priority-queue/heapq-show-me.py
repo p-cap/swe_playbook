@@ -1,25 +1,33 @@
 # show how heapq.heapify works
 import heapq
 
-k = 4
-data =  [4, 5, 8, 2]
-print(f"Original: {data}")
-print(f"k: {k}")
+def my_heappop():
+    # popping data from min_heap
+    if len(data) > k:
+        heapq.heappop(data)
 
-# heapifying the min_heap
-heapq.heapify(data)
-print(f"After heapify: {data}")
+if __name__ == "__main__":
+    k = 3
+    data =  [4, 5, 8, 2]
+    print(f"Original: {data}")
+    print(f"k: {k}")
 
-# pushing data onto min_heap
-stream_data = 3
-print(f"Adding {stream_data}")
-heapq.heappush(data, stream_data)
-print(f"After heapush: {data}")
+    # heapifying the min_heap
+    heapq.heapify(data)
+    print(f"After heapify: {data}")
 
-# popping data from min_heap
-if len(data) > k:
-    heapq.heappop(data)
+    # pop from the heap
+    my_heappop()
 
-# This does not represent 
-print(f"After heappop: {data}")
-print(data[0])
+    # pushing data onto min_heap
+    stream_data = 3
+    print(f"Adding {stream_data}")
+    heapq.heappush(data, stream_data)
+    print(f"After heapush: {data}")
+
+    # pop from the heap
+    my_heappop()
+    
+    # return the root of the heap
+    print(f"After heappop: {data}")
+    print(data[0])
