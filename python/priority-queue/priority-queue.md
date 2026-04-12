@@ -11,6 +11,20 @@
 * IMPORTANT: the doubts in recalling the code will field FAQs
 * Generate FAQs about the problem (where to put it????)
 
+## My notes
+- in the kth largest problem for streaming data, there is a while loop that continues UNTIL the length of nums is equal to k.
+```python
+def __init__(self, nums,k):
+    self.nums = nums
+    self.k = k
+
+    heapq.heapify(self.nums)
+    while len(self.nums) > k:
+        heapq.heapppop(self.nums)
+```
+- if an nums list has 1000 elements, the `__init__` function will trim the number of elements down to the number of elements based on k
+
+
 
 ## 🚀 Master Logic Table (Quick Reference)
 
