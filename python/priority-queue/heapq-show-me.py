@@ -19,6 +19,7 @@ if __name__ == "__main__":
     # pop from the heap
     my_heappop()
 
+    print(f"After the first pop: {data}")
     # pushing data onto min_heap
     stream_data = 3
     print(f"Adding {stream_data}")
