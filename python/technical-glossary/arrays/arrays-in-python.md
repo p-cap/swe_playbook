@@ -90,4 +90,3 @@ When the standard list is too slow, use these:
 2.  **List Concatenation:** `list1 + list2` creates a brand new list ($O(n+m)$). If you just want to add elements, use `list1.extend(list2)`.
 3.  **Large Pops:** If a problem requires frequently removing the first element, **stop using a list.** A list `pop(0)` is $O(n)$; a `deque.popleft()` is $O(1)$.
 
-**Which of these "shortcuts" do you find yourself forgetting most often during a live coding session?**
