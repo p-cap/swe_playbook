@@ -13,6 +13,9 @@
     * Solve the problem
 * After the 10 minute window:
     * Did I solve the problem?
+    * Can we compare the current problem with other previous problems?
+    * Do we have a base problem?
+    * What is the difference between problems?
     * if not,
         * check test cases in remarkable
         * Practice print statements to see how can I effectively debug the problem with the help of Gemini

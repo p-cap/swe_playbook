@@ -100,3 +100,14 @@ for s in strs:
 3.  **Unhashable Keys:** You cannot use a **List** as a dictionary key because it is mutable. Use a **Tuple** instead.
 
 **Are you working on a specific problem right now where you're deciding between using a Dictionary or a Set?**
+
+
+
+
+
+
+
+
+
+
+
